@@ -1,0 +1,26 @@
+<p>View Places </p>
+<div>
+    <div class="buttons">
+        <button (click)="toggleSearch()">Search</button>
+        <button class="filter" (click)="toggleFilter()">Filter</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Place Name</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+             <tr *ngFor="let place of Places">
+                <td>{{place.name}}</td>
+                
+           
+            <td>
+                <button (click)="editPlace(place)">Edit</button>
+                <button (click)="deletePlace(place)">Delete</button>
+            </td>
+        </tr> 
+        </tbody>
+    </table>
+</div>

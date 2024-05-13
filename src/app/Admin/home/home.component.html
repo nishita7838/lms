@@ -1,0 +1,228 @@
+<div class="page">
+
+    <!-- Header section  start here -->
+     
+    <mat-toolbar style="background-color: white; text-align: center; vertical-align:middle ;" class="example-toolbar">
+  
+      <!-- toggle button -->
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="onClick()">
+        <mat-icon class="menu">menu</mat-icon>
+      </button>
+      <!--  -->
+  
+      <!--  -->
+      <div class="navv example-app-name">
+        <!--  -->
+        <div style="margin-top:2%;">
+          <a class="navbar-brand" >
+  
+            <div class="logo-image">
+  
+              <h1>Library Management System</h1>
+  
+            </div>
+          </a>
+  
+        </div>
+  
+        <div style=" margin-top:3%; justify-content: space-between; margin-right:5%;" class="settings">
+  
+          <a style="text-decoration: none;" routerLink="">
+  
+            <mat-icon style="margin-bottom:-6px;" class="l-setting">settings_application</mat-icon>
+  
+            <!-- <span class="setting_text">Settings</span> -->
+  
+          </a>
+  
+  
+          <a style="text-decoration: none;" routerLink="">
+  
+            <mat-icon style="margin-bottom:-10px; margin-left: 14%;" class="logout">logout</mat-icon>
+  
+            <!-- <span class="text_logout">LogOut</span> -->
+  
+          </a>
+  
+        </div>
+  
+        <!--  -->
+  
+      </div>
+      <!--  -->
+  
+  
+  
+    </mat-toolbar>
+    <!-- header section end here -->
+  
+  
+  
+  
+    <div class="sidenav-container">
+      
+      <mat-sidenav-container class="example-container" autosize>
+        
+          <!-- <img src="assets/images/admin-home.png" /> -->
+       
+        <mat-sidenav #sidenav mode="side" opened="true" (click)="mouseenter()" (mouseleave)="mouseleave()"
+          [ngClass]="[val]">
+  
+  
+          <mat-nav-list>
+            <a mat-list-item class="mat-list-item"
+              (click)="proceedTo='dashboard';val='example-sidenav'; isExpanded=true;">
+  
+  
+              <mat-icon class="sidebar-ico truVault">dashboard</mat-icon>
+  
+  
+              <div><span *ngIf="isExpanded" class="test navText">Dashboard</span></div>
+  
+            </a>
+            <!--  -->
+          
+        
+            <a mat-list-item [matMenuTriggerFor]="manageBooksMenu" class="mat-list-item">
+           
+              <div>
+  
+                <mat-icon class="sidebar-ico transactions">book</mat-icon>
+              </div>
+               <div>
+                <span class="test navText" *ngIf="isExpanded">Manage Books</span>
+                
+              </div>
+          
+              <mat-menu #manageBooksMenu="matMenu">
+                <button mat-menu-item (click)="proceedTo='add-books'">Add Books</button>
+                <button mat-menu-item (click)="proceedTo='view-books'">View Books</button>
+              </mat-menu> 
+          
+            </a>
+      
+       
+            <!--  -->
+  
+            <!--  -->
+            <a mat-list-item [matMenuTriggerFor]="manageCategoryMenu" class="mat-list-item" >
+  
+              <div>
+  
+                <mat-icon class=" sidebar-ico edit">category</mat-icon>
+              </div>
+              <div>
+                <span class="test navText" *ngIf="isExpanded">Manage Category</span>
+  
+              </div>
+              <mat-menu #manageCategoryMenu="matMenu">
+                <button mat-menu-item (click)="proceedTo='add-category'">Add Category</button>
+                <button mat-menu-item (click)="proceedTo='view-category'">View Categories</button>
+              </mat-menu>
+            </a>
+            
+
+            <a mat-list-item class="mat-list-item"
+              (click)="proceedTo='book-issue-requests';val='example-sidenav'; isExpanded=true;">
+  
+              <div><mat-icon class="sidebar-ico dashboard">near_me</mat-icon>
+              </div>
+              <div><span *ngIf="isExpanded" class="test navText">Book Issue Requests</span></div>
+  
+            </a>
+            <!--  -->
+  
+  
+            <!--  -->
+            <a mat-list-item [matMenuTriggerFor]="managePlacesMenu" class="mat-list-item">
+  
+              <div><mat-icon class=" sidebar-ico contact">location_on</mat-icon>
+              </div>
+              <div><span *ngIf="isExpanded" class="test navText">Manage Places</span></div>
+              <mat-menu #managePlacesMenu="matMenu">
+                <button mat-menu-item (click)="proceedTo='add-place'">Add Place</button>
+                <button mat-menu-item (click)="proceedTo='view-places'">View Places</button>
+              </mat-menu>
+            </a>
+            <!--  -->
+  
+            <!--  -->
+            <a mat-list-item [matMenuTriggerFor]="manageUsersMenu" class="mat-list-item">
+  
+              <div>
+                <mat-icon class=" sidebar-ico truVault">supervisor_account</mat-icon>
+              </div>
+              <div><span *ngIf="isExpanded" class="test navText">Manage Users</span></div>
+              <mat-menu #manageUsersMenu="matMenu">
+                <button mat-menu-item (click)="proceedTo='add-user'">Add User</button>
+                <button mat-menu-item (click)="proceedTo='view-users'">View Users</button>
+              </mat-menu>
+            </a>
+            <!--  -->
+  
+           
+  
+  
+          </mat-nav-list>
+          <!--  -->
+  
+        </mat-sidenav>
+        <!--  -->
+  
+        <!-- switch case div start here -->
+  
+        <div class="main-content">
+  
+          <div [ngSwitch]="proceedTo">
+  
+            <div *ngSwitchCase="'dashboard'" class="alignment">
+              <app-dashboard></app-dashboard>
+            </div>
+  
+  
+            <div *ngSwitchCase="'add-books'">
+              <app-add-books></app-add-books>
+            </div>
+  
+            <div *ngSwitchCase="'view-books'">
+              <app-view-books></app-view-books>
+            </div>
+            
+            <div *ngSwitchCase="'add-category'">
+              <app-add-category></app-add-category>
+            </div>
+  
+            <div *ngSwitchCase="'view-category'">
+              <app-view-category></app-view-category>
+            </div>
+            <div *ngSwitchCase="'add-place'">
+              <app-add-place></app-add-place>
+            </div>
+  
+            <div *ngSwitchCase="'view-places'">
+              <app-view-places></app-view-places>
+            </div>
+            <div *ngSwitchCase="'book-issue-requests'">
+              <app-book-issue-requests></app-book-issue-requests>
+            </div>
+            <div *ngSwitchCase="'add-user'">
+              <app-add-user></app-add-user>
+            </div>
+  
+            <div *ngSwitchCase="'view-users'">
+              <app-view-users></app-view-users>
+            </div>
+  
+  
+            <div *ngSwitchDefault class="alignment">
+              <app-dashboard></app-dashboard>
+            </div>
+  
+          </div>
+  
+        </div>
+  
+        <!-- switch case div end here -->
+  
+      </mat-sidenav-container>
+    </div>

@@ -1,0 +1,26 @@
+<p>View Categories </p>
+<div>
+    <div class="buttons">
+        <button (click)="toggleSearch()">Search</button>
+        <button class="filter" (click)="toggleFilter()">Filter</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Category Name</th>
+                
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+             <tr *ngFor="let category of Categories">
+                <td>{{category.name}}</td>
+            
+            <td>
+                <button (click)="editCategory(category)">Edit</button>
+                <button (click)="deleteCategory(category)">Delete</button>
+            </td>
+        </tr> 
+        </tbody>
+    </table>
+</div>

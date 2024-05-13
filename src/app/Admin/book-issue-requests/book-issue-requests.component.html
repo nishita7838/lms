@@ -1,0 +1,33 @@
+<p>Book Issue Requests</p>
+<div>
+    <div class="buttons">
+        <button (click)="toggleSearch()">Search</button>
+        <button class="filter" (click)="toggleFilter()">Filter</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Book Title</th>
+                <th>Category</th>
+                <th>Author</th>
+                <th>ISBN</th>
+                <th>Request Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+             <tr *ngFor="let request of Requests">
+                <td>{{request.bookTitle}}</td>
+                <td>{{request.category}}</td>
+                <td>{{request.author}}</td>
+                <td>{{request.isbn}}</td>
+                <td>{{request.date}}</td>
+           
+            <td>
+                <button (click)="acceptRequest()">Accept</button>
+                <button (click)="rejectRequest()">Reject</button>
+            </td>
+        </tr> 
+        </tbody>
+    </table>
+</div>

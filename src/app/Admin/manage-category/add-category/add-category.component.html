@@ -1,0 +1,45 @@
+<p>Add Category</p>
+
+
+
+<div class="star" style="color: red;">* Marked fields are mandatory</div>
+
+
+<form [formGroup]="addCategoryForm">
+
+  <div class="row" id="row1">
+
+    <div class="col">
+
+      <label for="name" class="name"> Category Name : <span style="color: red">*</span></label>
+
+      <input type="text" id="name" formControlName="name" name='name' readonly disable="true" placeholder="Enter Category Name">
+
+      <div style="color:red;" *ngIf="addCategoryForm.get('name')?.invalid && addCategoryForm.get('name')?.touched">
+
+        <div *ngIf="addCategoryForm.get('name')?.errors?.['required']">Category name is required.</div>
+
+        <div *ngIf="addCategoryForm.get('name')?.errors?.['pattern']">Category name must contain only letters.
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col" id="col2">
+
+      <label for="status">Status :<span style="color: red;margin-right:1px;">*</span></label>          
+      <select formControlName="status" id='status'>       
+       
+          <option  value="active">Active</option>
+          <option  value="inactive">Inactive</option>
+        <div style="color:red;" *ngIf="addCategoryForm.get('status')?.invalid && addCategoryForm.get('status')?.touched">
+        <div *ngIf="addCategoryForm.get('status')?.errors?.['required']">Category is required.</div>
+      </div>
+     </select>
+    </div>
+
+  </div>
+
+</form>
+

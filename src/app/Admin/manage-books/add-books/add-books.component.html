@@ -1,0 +1,171 @@
+<p>Add Books </p>
+
+<div class="star" style="color: red;">* Marked fields are mandatory</div>
+
+<form [formGroup]="addBookForm">
+
+  <div class="row" id="row1">
+
+    <div class="col">
+
+      <label for="name" class="name"> Book Name:<span style="color: red">*</span></label>
+
+      <input type="text" id="name" formControlName="name" name='name' placeholder="Enter Book Name">
+
+      <div style="color:red;" *ngIf="addBookForm.get('name')?.invalid && addBookForm.get('name')?.touched">
+
+        <div *ngIf="addBookForm.get('name')?.errors?.['required']">Book name is required.</div>
+
+        <div *ngIf="addBookForm.get('name')?.errors?.['pattern']">Invalid book name.
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col">
+
+      <label for="category">Category :<span style="color: red;margin-right:1px;">*</span></label>
+
+      <input type="text" formControlName="category" name='category'  placeholder="Enter Category">
+
+      <div style="color:red;" *ngIf="addBookForm.get('category')?.invalid && addBookForm.get('category')?.touched">
+
+        <div *ngIf="addBookForm.get('category')?.errors?.['required']">Category is required.</div>
+
+        
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <br>
+
+  <div class="row" id="row2">
+
+    <div class="col">
+
+      <label for="isbn">ISBN :<span style="color: red">*</span></label>
+
+      <input type="text" formControlName="isbn" name='isbn' placeholder="Enter ISBN">
+
+      <div style="color:red;" *ngIf="addBookForm.get('isbn')?.invalid && addBookForm.get('isbn')?.touched">
+
+        <div *ngIf="addBookForm.get('isbn')?.errors?.['required']">ISBN is required.</div>
+
+        <div *ngIf="addBookForm.get('isbn')?.errors?.['pattern']">Invalid ISBN.
+        </div>
+
+
+    </div>
+  </div>
+    <div class="col" id="col2">
+
+      <label for="author">Author:<span style="color: red">*</span></label>
+
+      <input type="text" formControlName="author" class="author" name='author' placeholder="Enter Author">
+
+      <div style="color:red;"
+        *ngIf="addBookForm.get('author')?.invalid && (addBookForm.get('author')?.dirty || addBookForm.get('author')?.touched)">
+
+        <div *ngIf="addBookForm.get('author')?.errors?.['required']">Author is required</div>
+        <div *ngIf="addBookForm.get('author')?.errors?.['pattern']">Invalid ISBN.
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <br>
+
+  <div class="row" id="row3">
+
+    <div class="col">
+
+      <label For="publisher">Publisher :<span style="color: red">*</span></label>
+
+      <input type="text" formControlName="publisher" name='publisher' placeholder="Enter Publisher Name">
+
+
+
+      <div style="color:red;"
+        *ngIf="addBookForm.get('publisher')?.invalid && (addBookForm.get('publisher')?.dirty || addBookForm.get('publisher')?.touched)">
+
+        <div *ngIf="addBookForm.get('publisher')?.errors?.['required']">Enter publisher's name.</div>
+
+        <div *ngIf="addBookForm.get('publisher')?.errors?.['pattern']">Publisher name is not valid.</div>
+
+      </div>
+
+    </div>
+
+    <div class="col" id="col3">
+
+      <label for="price">Price :<span style="color: red">*</span></label>
+      <input type="text" formControlName="price" name='price' placeholder="Enter price of the book">
+
+      <div style="color:red;"
+        *ngIf="addBookForm.get('price')?.invalid && (addBookForm.get('price')?.dirty || addBookForm.get('price')?.touched)">
+
+        <div *ngIf="addBookForm.get('price')?.errors?.['required']">Enter price</div>
+
+        <div *ngIf="addBookForm.get('price')?.errors?.['pattern']">Enter valid price</div>
+
+      </div>
+
+
+
+
+    </div>
+
+
+
+
+  </div>
+
+  <div class="row" id="row4">
+
+    <div class="col">
+
+      <label for="quantity">Quantity :<span style="color: red">*</span></label>
+
+      <select id="quantity" formControlName="quantity">
+        <option *ngFor="let quantity of quantities" [value]="quantity">{{quantity}}</option>
+      </select>
+
+
+      <div style="color:red;"
+        *ngIf="addBookForm.get('quantity')?.invalid && (addBookForm.get('quantity')?.dirty || addBookForm.get('quantity')?.touched)">
+
+        <div *ngIf="addBookForm.get('quantity')?.errors?.['required']">Enter quantity of books.</div>
+
+      </div>
+
+
+
+
+    </div>
+
+    <div class="col" id="col4">
+
+      <label for="location">Location :<span style="color: red">*</span></label>
+
+      <input type="text" id="location" formControlName="location" name='location' placeholder="Enter Location">
+
+      <div style="color:red;"  
+        *ngIf="addBookForm.get('location')?.invalid && (addBookForm.get('location')?.dirty || addBookForm.get('location')?.touched)">
+
+        <div *ngIf="addBookForm.get('location')?.errors?.['required']">Enter location</div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  
+
+</form>

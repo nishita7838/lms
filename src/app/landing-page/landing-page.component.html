@@ -1,0 +1,45 @@
+<div class="wholebg">
+
+  <div class="bgimg">
+    <img src="assets/images/Landing-page.png" />
+  </div>
+
+
+
+  <!-- div for login register section , will chnge  -->
+  <div class="inner-container">
+
+    <!-- <div id="logo">
+         <img src="assets/images/MicrosoftTeams-image.png" /> 
+      </div> -->
+    <!-- div for switch case  -->
+    <div id="left-side">
+      <h3>My Library</h3>
+
+      <div [ngSwitch]="options">
+        <div *ngSwitchCase="'Login'">
+          <app-login></app-login>
+        </div>
+        <div *ngSwitchCase="'Register'">
+          <app-register></app-register>
+
+        </div>
+        
+        <div *ngSwitchDefault>
+          <app-login></app-login>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- switch case div end here -->
+
+  <!--  -->
+  
+  <!--  -->
+
+</div>
+<footer class="footer" id="pageFooter">
+  <div class="copyRight" style="background-color:#f1f2f7"> &copy;2023 Ray Insurance</div>
+</footer>

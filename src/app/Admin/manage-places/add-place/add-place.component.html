@@ -1,0 +1,44 @@
+<p>Add Place</p>
+
+
+<div class="star" style="color: red;">* Marked fields are mandatory</div>
+
+
+<form [formGroup]="addPlaceForm">
+
+  <div class="row" id="row1">
+
+    <div class="col">
+
+      <label for="name" class="name"> Place Name :<span style="color: red">*</span></label>
+
+      <input type="text" id="name" formControlName="name" name='name' placeholder="Enter Place Name">
+
+      <div style="color:red;" *ngIf="addPlaceForm.get('name')?.invalid && addPlaceForm.get('name')?.touched">
+
+        <div *ngIf="addPlaceForm.get('name')?.errors?.['required']">Place name is required.</div>
+
+        <div *ngIf="addPlaceForm.get('name')?.errors?.['pattern']">Place name must contain letters and digits.
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col" id="col2">
+
+      <label for="status">Status :<span style="color: red;margin-right:1px;">*</span></label>          
+      <select formControlName="status" id='status'>       
+       
+          <option  value="active">Active</option>
+          <option  value="inactive">Inactive</option>
+        <div style="color:red;" *ngIf="addPlaceForm.get('status')?.invalid && addPlaceForm.get('status')?.touched">
+        <div *ngIf="addPlaceForm.get('status')?.errors?.['required']">Status is required.</div>
+      </div>
+     </select>
+    </div>
+
+  </div>
+
+</form>
+

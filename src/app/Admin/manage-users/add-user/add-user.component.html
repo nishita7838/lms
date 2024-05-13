@@ -1,0 +1,138 @@
+
+<p>Add User </p>
+
+<div class="star" style="color: red;">* Marked fields are mandatory</div>
+
+<form [formGroup]="addUserForm">
+
+
+
+
+  <div class="row" id="row1">
+
+    <div class="col">
+
+      <label for="name" class="name"> User Name:<span style="color: red">*</span></label>
+
+      <input type="text" id="name" formControlName="name" name='name' placeholder="Enter User Name">
+
+      <div style="color:red;" *ngIf="addUserForm.get('name')?.invalid && addUserForm.get('name')?.touched">
+
+        <div *ngIf="addUserForm.get('name')?.errors?.['required']">User name is required.</div>
+
+        <div *ngIf="addUserForm.get('name')?.errors?.['pattern']">User name must contain only letters.
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col">
+
+      <label for="email">Email Id :<span style="color: red;margin-right:1px;">*</span></label>
+
+      <input type="text" formControlName="email" name='email'  placeholder="Enter Email Id">
+
+      <div style="color:red;" *ngIf="addUserForm.get('email')?.invalid && addUserForm.get('email')?.touched">
+
+        <div *ngIf="addUserForm.get('email')?.errors?.['required']">Email is required.</div>
+
+        <div *ngIf="addUserForm.get('email')?.errors?.['pattern']">Email must contain only letters.
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <br>
+
+  <div class="row" id="row2">
+
+    <div class="col">
+
+      <label for="password">Password :<span style="color: red">*</span></label>
+
+      <input type="Password" formControlName="password" name='password'>
+
+      <div style="color:red;" *ngIf="addUserForm.get('password')?.invalid && addUserForm.get('password')?.touched">
+
+        <div *ngIf="addUserForm.get('password')?.errors?.['required']">Password is required.</div>
+
+        <div *ngIf="addUserForm.get('password')?.errors?.['minLength']">Password too weak
+        </div>
+        <div *ngIf="addUserForm.get('password')?.errors?.['maxLength']">Password too strong to remember
+        </div>
+
+
+    </div>
+  </div>
+    <div class="col" id="col2">
+
+      <label for="role">Role:<span style="color: red">*</span></label>
+
+      <select formControlName="role" id="selectStatus">       
+         
+        <option  value="active">Reader</option>
+        <option  value="inactive">Staff</option>
+      <div style="color:red;" *ngIf="addUserForm.get('role')?.invalid && addUserForm.get('role')?.touched">
+      <div *ngIf="addUserForm.get('role')?.errors?.['required']">Role is required.</div>
+    </div>
+  </select>
+
+
+
+
+    </div>
+
+  </div>
+
+  <br>
+
+  <div class="row" id="row3">
+    <div class="col">
+
+
+
+
+      <label for="phoneNo">Phone No:<span style="color: red">*</span></label>
+
+
+
+
+      <input type="text" formControlName="phoneNo" name='phoneNo' placeholder="Enter Phone No">
+
+      <div style="color:red;"  
+        *ngIf="addUserForm.controls['phoneNo']?.invalid && (addUserForm.controls['phoneNo']?.dirty || addUserForm.controls['phoneNo']?.touched)">
+
+        <div *ngIf="addUserForm.controls['phoneNo']?.errors?.['required']">Enter Phone No</div>
+
+        <div *ngIf="addUserForm.controls['phoneNo']?.errors?.['pattern']">Phone number must be right</div>
+
+      </div>
+
+
+
+
+    </div>
+    <div class="col">
+
+
+
+
+        <label for="status" id="status">Status :<span style="color: red;margin-right:1px;">*</span></label>          
+        <select formControlName="status" id='selectStatus'>       
+         
+            <option  value="active">Active</option>
+            <option  value="inactive">Inactive</option>
+          <div style="color:red;" *ngIf="addUserForm.get('status')?.invalid && addUserForm.get('status')?.touched">
+          <div *ngIf="addUserForm.get('status')?.errors?.['required']">Status is required.</div>
+        </div>
+      </select>
+    </div>
+      
+    </div>
+  
+
+</form>

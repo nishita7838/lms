@@ -1,0 +1,31 @@
+<p>View Users </p>
+<div>
+    <div class="buttons">
+        <button (click)="toggleSearch()">Search</button>
+        <button class="filter" (click)="toggleFilter()">Filter</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email Id</th>
+                <th>Role</th>
+                <th>Phone No</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+             <tr *ngFor="let user of Users">
+                <td>{{user.name}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.role}}</td>
+                <td>{{user.phoneNo}}</td>
+           
+            <td>
+                <button (click)="editUser(user)">Edit</button>
+                <button (click)="deleteUser(user)">Delete</button>
+            </td>
+        </tr> 
+        </tbody>
+    </table>
+</div>

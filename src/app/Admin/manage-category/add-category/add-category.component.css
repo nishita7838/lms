@@ -1,0 +1,148 @@
+label {
+    width: 100px;
+    display: inline-block;
+    text-align: left;
+    font-size: 16px;
+    position: relative;
+    right: -45px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  
+  }
+  form{
+    margin-top:35px;
+  }
+  p{
+    margin-top:12px;
+    margin-left:10px;
+    color:#4f71c7;
+    font-size:15px;
+    background-color: #d9d2d2;
+    background-size:25px;
+    block-size:25px;
+    padding-top:5px;
+    padding-left:10px;
+  } 
+  input:not([type="radio"]) {
+    width: 50%;
+    height: 20px;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    position: relative;
+    right: -45px;
+    bottom:10px;
+    transition: all 0.2s ease-out;
+  }
+  
+  
+  input:focus {
+    border-color: #666;
+  }
+  
+  .star{
+    margin-left:20px;
+ }
+  
+   .col {
+    text-align: left;
+    margin-left: 65px;
+    padding: 5px;
+    display: inline-block;
+    
+  }
+   
+  
+ #col2{
+  position: relative;
+  bottom:15px;
+  
+ }
+  #status{
+   margin-left:25px;
+   width:100px;
+   height:30px;
+  }
+  
+  label[for="name"] {
+    width: 120px;
+  }
+  
+  #name {
+    position: relative;
+    right: -25px;
+  }
+  
+  
+  
+  @media (max-width: 500px) {
+    p {
+      font-size: 50px;
+      font-weight: bold;
+      margin-left: 80px;
+      margin-right: 80px;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+    }
+  
+    .pre-star {
+      font-size: 30px;
+    }
+  
+    .star {
+      font-size: 30px;
+    }
+  
+    label {
+      font-size: 45px;
+      flex-wrap: wrap;
+      width: 400px;
+      display: inline-flex !important;
+      flex-direction: row;
+    }
+  
+    .row {
+      flex-direction: column;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-top: 15px;
+      flex: auto;
+      position: relative;
+      font-size: 40px;
+    }
+  
+    .col {
+      flex-direction: column;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-top: 15px;
+      flex: auto;
+      height: 150px;
+      font-size: 40px;
+    }
+  
+    input[type="radio"] {
+      transform: scale(2.0);
+      margin-right: 2px;
+      position: relative;
+      right: -175px !important;
+  
+  
+  
+  
+  
+    }
+  
+  
+
+  
+    .row .col:nth-child(2) {
+      margin-left: 35px !important;
+      /* add any other styles you want to change */
+    }
+  
+   
+  
+    label[for="name"] {
+      width: 400px;
+    }
+  
+  
+  }

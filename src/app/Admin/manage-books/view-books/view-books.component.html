@@ -1,0 +1,31 @@
+<p>View Books </p>
+<div>
+    <div class="buttons">
+        <button (click)="toggleSearch()">Search</button>
+        <button class="filter" (click)="toggleFilter()">Filter</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Book Title</th>
+                <th>Category</th>
+                <th>Author</th>
+                <th>ISBN</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+             <tr *ngFor="let book of Books">
+                <td>{{book.title}}</td>
+                <td>{{book.category}}</td>
+                <td>{{book.author}}</td>
+                <td>{{book.isbn}}</td>
+           
+            <td>
+                <button (click)="editBook(book)">Edit</button>
+                <button (click)="deleteBook(book)">Delete</button>
+            </td>
+        </tr> 
+        </tbody>
+    </table>
+</div>

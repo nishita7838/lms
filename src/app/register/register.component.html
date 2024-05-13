@@ -1,0 +1,53 @@
+<div class="container mt-5">
+  <div class="register-form">
+  <h2 class="mb-4">Register</h2>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <input type="text" id="name" class="form-control" placeholder="Enter Name" formControlName="name"/>
+      <span class="form-text text-danger" *ngIf="registerForm.get('name')?.errors?.['required']">
+        Name is required
+      </span>
+    </div>
+    <div class="form-group">
+      <input type="email" class="form-control" placeholder="Enter Email" formControlName="email" />
+      <span class="form-text text-danger" *ngIf="registerForm.get('email')?.errors?.['required']">
+        Email is required
+      </span>
+    </div>
+    <div class="form-group">
+      <input type="password" class="form-control" placeholder="Enter Password" formControlName="password"/>
+      <span class="form-text text-danger" *ngIf="registerForm.get('password')?.errors?.['required']">
+        Password is required
+      </span>
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Enter Phone No" formControlName="phoneNo"/>
+      <span class="form-text text-danger" *ngIf="registerForm.get('phoneNo')?.errors?.['required']">
+        Phone No is required
+      </span>
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Enter Address" formControlName="address"/>
+      <span class="form-text text-danger" *ngIf="registerForm.get('address')?.errors?.['required']">
+        Address is required
+      </span>
+      <span class="form-text text-danger" *ngIf="registerForm.get('address')?.errors?.['minlength']">
+        Address must be at least 5 characters
+      </span>
+      <span class="form-text text-danger" *ngIf="registerForm.get('address')?.errors?.['maxlength']">
+        Address cannot exceed 100 characters
+      </span>
+    </div>
+    <div class="button">
+      <button type="submit" name="register-submit" id="register_submit" class="btn btn-outline-primary btn-block">
+        Register
+      </button>
+      <!-- <a routerLink="/login">
+        <button type="submit" name="Code-submit" tabindex="4" class="btn btn-outline-primary btn-block">
+          Back
+        </button> -->
+      <!-- </a> -->
+    </div>
+   </form>
+  </div>
+</div>
